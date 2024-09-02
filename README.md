@@ -1,7 +1,7 @@
-# My custom keyboard firmware
-ZMK firmware/config for my wireless Corne keyboard
+# My custom keyboards
+ZMK firmware/config for my wireless Corne keyboards.
 
-## Keyboard layout
+## Keyboard layout/ keymap
 
 ### Default layer
 ![default layer key layout](docs/img/default_layer.png)
@@ -20,3 +20,21 @@ ZMK firmware/config for my wireless Corne keyboard
 - nav layer: reset_bluetooth
 
 ![Combos](docs/img/combos.png)
+
+## Keyboards
+
+### Black case (thocky)
+firmware: blk_corne_left, blk_corne_right
+![Keyboard black](docs/img/key_black.jpg)
+
+### White case (silent)
+firmware: wh_corne_left, wh_corne_right
+![Keyboard black](docs/img/keyb_white.jpg)
+
+### Gray case (silent)
+firmware: grs_corne_left, grs_corne_right
+![Keyboard black](docs/img/keyb_grayblue.jpg)
+
+### Low profile
+firmware: lp_corne_left, lp_corne_right
+![Keyboard black](docs/img/low_profile.jpg)
