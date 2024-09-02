@@ -20,5 +20,50 @@
 include:
   - board: nice_nano_v2
     shield: corne_left
+    artifact-name: corne_left
   - board: nice_nano_v2
     shield: corne_right
+    artifact-name: corne_right
+
+  - board: nice_nano_v2
+    shield: settings_reset
+
+  # corne, black keyboard case, black keys, thocky
+  - board: nice_nano_v2
+    shield: corne_left
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/blkkeyb/corne.conf
+    artifact-name: blk_corne_left
+  - board: nice_nano_v2
+    shield: corne_right
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/blkkeyb/corne.conf
+    artifact-name: blk_corne_right
+
+  # corne, white keyboard case, white keycaps, silent
+  - board: nice_nano_v2
+    shield: corne_left
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/whkeyb/corne.conf
+    artifact-name: wh_corne_left
+  - board: nice_nano_v2
+    shield: corne_right
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/whkeyb/corne.conf
+    artifact-name: wh_corne_right
+
+  # corne, gray keyboard case, blue keycaps, silent
+  - board: nice_nano_v2
+    shield: corne_left
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/grskeyb/corne.conf
+    artifact-name: grs_corne_left
+  - board: nice_nano_v2
+    shield: corne_right
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/grskeyb/corne.conf
+    artifact-name: grs_corne_right
+
+  # corne, low profile case
+  - board: nice_nano_v2
+    shield: corne_left
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
+    artifact-name: lp_corne_left
+  - board: nice_nano_v2
+    shield: corne_right
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
+    artifact-name: lp_corne_right
