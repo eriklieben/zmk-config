@@ -61,10 +61,9 @@
              compatible = "zmk,behavior-tap-dance";
              #binding-cells = <0>;
              tapping-term-ms = <200>; 
-             bindings = <&none>,  // Single Tap: Reset/Clear modifiers
-                        <&kp LCTRL>,  // Double Tap: Hold CTRL
-                        <&kp LALT>,  // Triple Tap: Hold ALT
-                        <&kp LSHIFT>; // Hold: Activate SHIFT
+             bindings = <&kp LCTRL>,  // single Tap: Hold CTRL
+                        <&kp LALT>;  // double Tap: Hold ALT
+             hold-trigger = <&kp LSHIFT>;
          };
     };
 
