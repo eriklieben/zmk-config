@@ -61,8 +61,8 @@
              compatible = "zmk,behavior-tap-dance";
              #binding-cells = <0>;
              tapping-term-ms = <200>; 
-             bindings = <&kp LCTRL>,  // single Tap: Hold CTRL
-                        <&kp LALT>;  // double Tap: Hold ALT
+             bindings = <&hm LCTRL>,  // single Tap: Hold CTRL
+                        <&hm LALT>;  // double Tap: Hold ALT
              hold-trigger = <&kp LSHIFT>;
          };
     };
