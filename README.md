@@ -5,6 +5,8 @@ ZMK firmware/config for my wireless Corne keyboards.
 
 ### Default layer
 ![default layer key layout](docs/img/default_layer.png)
+- $td_ctrl_alt_shift: hold shift, tap once cancel, tap 2x CTRL hold, tap 3x ALT hold 
+- F20: Function key 20, used for GlazeWM control
 
 ### Symbols layer (1)
 ![symbols layer key layout](docs/img/symbols_layer.png)
