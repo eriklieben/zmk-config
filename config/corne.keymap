@@ -53,13 +53,16 @@
     behaviors {
         caps_words: caps_words {
             compatible = "zmk,behavior-caps-word";
-            label = "CAPS_WORDS";
+            
             #binding-cells = <0>;
+            
             continue-list = <UNDERSCORE MINUS>;
         };
         td_ctrl_alt: behavior_tap_dance {
              compatible = "zmk,behavior-tap-dance";
+             
              #binding-cells = <0>;
+             
              tapping-term-ms = <200>; 
 
              // Configure single and double tap actions
@@ -69,6 +72,7 @@
          
         ht_shift_td_ctrl_alt: behavior_hold_tap {
              compatible = "zmk,behavior-hold-tap";
+             
              #binding-cells = <0>;
 
              tapping-term-ms = <200>; 
