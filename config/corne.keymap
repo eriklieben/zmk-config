@@ -60,7 +60,7 @@
         };
         td_ctrl_alt: behavior_tap_dance {
              compatible = "zmk,behavior-tap-dance";
-             
+     
              #binding-cells = <0>;
              
              tapping-term-ms = <200>; 
@@ -71,16 +71,13 @@
         };
          
         ht_shift_td_ctrl_alt: behavior_hold_tap {
-             compatible = "zmk,behavior-hold-tap";
-             
-             #binding-cells = <0>;
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;  
 
-             tapping-term-ms = <200>; 
-             
-             // Define hold and tap triggers
-             hold-trigger = <&kp LSHIFT>;   // Hold: SHIFT
-             tap-trigger = <&td_ctrl_alt>; // Tap: Perform tap-dance (CTRL or ALT)
+            bindings = <&kp LSHIFT>,  // Hold: Shift key
+                       <&td_ctrl_alt>; // Tap: Tap-dance behavior (Ctrl/Alt)
         };
+
     };
 
     keymap {
