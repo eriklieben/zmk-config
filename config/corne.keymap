@@ -72,14 +72,14 @@
         kp_shift: behavior_key_press {
             compatible = "zmk,behavior-key-press";
             #binding-cells = <0>;
-            bindings = < KP_LSHIFT >; // Points to predefined LSHIFT
+            bindings = <&kp LSHIFT>; 
         };
         ht_shift_td_ctrl_alt: behavior_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;  
 
-            bindings = <&kp_shift>,  // Hold: Shift key
-                       <&td_ctrl_alt>; // Tap: Tap-dance behavior (Ctrl/Alt)
+            bindings = <&kp_shift>, 
+                       <&td_ctrl_alt>;
         };
 
     };
