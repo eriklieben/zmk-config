@@ -74,7 +74,7 @@
             bindings = <
 &kp ESCAPE  &kp Q  &kp W  &kp E  &kp R          &kp T          &kp Y    &kp U           &kp I     &kp O      &kp P     &kp BACKSLASH
 &kp LALT    &kp A  &kp S  &kp D  &kp F          &kp G          &kp H    &kp J           &kp K     &kp L      &kp SEMI  &kp SQT
-&kp LCTRL   &kp Z  &kp X  &kp C  &kp V          &kp B          &kp M    &kp N           &kp FSLH  &kp COMMA  &kp DOT   &kp RSHIFT
+&kp LCTRL   &kp Z  &kp X  &kp C  &kp V          &kp B          &kp N    &kp M           &kp FSLH  &kp COMMA  &kp DOT   &kp RSHIFT
                           &mo 1  &kp BACKSPACE  &lt 3 SPACE    &kp RET  &mt F20 DELETE  &mo 2
             >;
         };
