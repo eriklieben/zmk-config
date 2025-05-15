@@ -59,11 +59,11 @@ include:
     artifact-name: grs_corne_right
 
   # corne, low profile case
-  - board: nice_nano_v2
+  - board: eyelash_corne_left
     shield: corne_left nice_view
     cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
     artifact-name: lp_corne_left
-  - board: nice_nano_v2
+  - board: eyelash_corne_right
     shield: corne_right nice_view
     cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
     artifact-name: lp_corne_right
