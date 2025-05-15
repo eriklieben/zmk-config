@@ -60,10 +60,10 @@ include:
 
   # corne, low profile case
   - board: nice_nano_v2
-    shield: corne_left
+    shield: corne_left nice_view_adapter
     cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
     artifact-name: lp_corne_left
-  - board: nice_nano_v2
+  - board: nice_nano_v2 nice_view_adapter
     shield: corne_right
     cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
     artifact-name: lp_corne_right
