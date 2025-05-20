@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define MEH LS(LC(LALT))
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -62,7 +64,7 @@
 &kp ESCAPE    &kp Q  &kp W  &kp E  &kp R          &kp T          &kp Y    &kp U           &kp I     &kp O      &kp P     &kp BACKSLASH
 &mt LALT TAB  &kp A  &kp S  &kp D  &kp F          &kp G          &kp H    &kp J           &kp K     &kp L      &kp SEMI  &kp SQT
 &kp LCTRL     &kp Z  &kp X  &kp C  &kp V          &kp B          &kp N    &kp M           &kp FSLH  &kp COMMA  &kp DOT   &kp RSHIFT
-                            &mo 1  &kp BACKSPACE  &lt 3 SPACE    &kp RET  &mt F20 DELETE  &mo 2
+                            &mo 1  &kp BACKSPACE  &lt 3 SPACE    &kp RET  &mt MEH DELETE  &mo 2
             >;
         };
 
