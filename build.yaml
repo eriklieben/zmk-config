@@ -27,6 +27,8 @@ include:
 
   - board: nice_nano_v2
     shield: settings_reset
+  - board: eyelash_corne_left
+    shield: settings_reset
 
   # corne, black keyboard case, black keys, thocky
   - board: nice_nano_v2
@@ -61,9 +63,9 @@ include:
   # corne, low profile case
   - board: eyelash_corne_left
     shield: nice_view
-    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
+    cmake-args: -DKEYMAP_FILE=../../config/lpkeyb/eyelash_corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/eyelash_corne.conf
     artifact-name: lp_corne_left
   - board: eyelash_corne_right
-    shield: nice_view
-    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/corne.conf
+    shield: nice_view_custom
+    cmake-args: -DKEYMAP_FILE=../../config/lpkeyb/eyelash_corne.keymap -DEXTRA_CONF_FILE=../../config/lpkeyb/eyelash_corne.conf
     artifact-name: lp_corne_right
