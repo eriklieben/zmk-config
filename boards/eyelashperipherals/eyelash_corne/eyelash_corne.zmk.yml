@@ -3,7 +3,6 @@ id: eyelash_corne
 name: Eyelash Corne
 url: https://github.com/a741725193/zmk-new_corne
 type: board
-arch: arm
 features:
   - keys
   - display
