@@ -34,10 +34,11 @@ foreach (var layer in data.Layers)
     Console.WriteLine($"  Generated {path}");
 }
 
-if (data.Combos.Count > 0)
+foreach (var combo in data.Combos)
 {
-    var path = Path.Combine(outputDir, $"{filePrefix}combos.svg");
-    File.WriteAllText(path, renderer.RenderCombos(data.Combos, positions));
+    var comboName = Regex.Replace(combo.Name.ToLower(), @"[^a-z0-9]+", "_").Trim('_');
+    var path = Path.Combine(outputDir, $"{filePrefix}combo_{comboName}.svg");
+    File.WriteAllText(path, renderer.RenderCombo(combo, positions));
     Console.WriteLine($"  Generated {path}");
 }
 
@@ -311,14 +312,16 @@ class SvgRenderer
         return sb.ToString();
     }
 
-    public string RenderCombos(List<Combo> combos, List<KeyPos> positions)
+    public string RenderCombo(Combo combo, List<KeyPos> positions)
     {
         var (vw, vh) = GetViewBox(positions);
+        var layerInfo = combo.Layers != null ? $" (Layer {string.Join(",", combo.Layers)})" : "";
+        var title = $"{combo.Name}{layerInfo}";
         var sb = new StringBuilder();
 
         sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{F(-PadSvg)} {F(-PadSvg)} {F(vw)} {F(vh)}">""");
         sb.AppendLine($"""  <rect x="{F(-PadSvg)}" y="{F(-PadSvg)}" width="{F(vw)}" height="{F(vh)}" fill="{BgColor}" rx="12"/>""");
-        sb.AppendLine($"""  <text x="{F((vw - PadSvg * 2) / 2)}" y="-8" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">Combos</text>""");
+        sb.AppendLine($"""  <text x="{F((vw - PadSvg * 2) / 2)}" y="-8" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">{Esc(title)}</text>""");
 
         // Ghost keys
         foreach (var p in positions)
@@ -329,30 +332,28 @@ class SvgRenderer
             sb.AppendLine($"""  <rect x="{F(p.X)}" y="{F(p.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="none" stroke="{TransColor}" stroke-width="0.5" opacity="0.3"/>""");
         }
 
-        foreach (var combo in combos)
+        // Highlight combo keys
+        var centers = new List<(double X, double Y)>();
+        foreach (var p in combo.Positions.Where(p => p < positions.Count))
         {
-            var centers = new List<(double X, double Y)>();
-            var layerInfo = combo.Layers != null ? $" (L{string.Join(",", combo.Layers)})" : "";
+            var kp = positions[p];
+            centers.Add((kp.X + W / 2, kp.Y + H / 2));
+            var transform = kp.Rotation != 0
+                ? $""" transform="rotate({F(kp.Rotation)} {F(kp.X + W / 2)} {F(kp.Y + H / 2)})" """
+                : " ";
+            sb.AppendLine($"""  <rect x="{F(kp.X)}" y="{F(kp.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="{ComboColor}" opacity="0.2" stroke="{ComboColor}" stroke-width="2"/>""");
+        }
 
-            foreach (var p in combo.Positions.Where(p => p < positions.Count))
-            {
-                var kp = positions[p];
-                centers.Add((kp.X + W / 2, kp.Y + H / 2));
-                var transform = kp.Rotation != 0
-                    ? $""" transform="rotate({F(kp.Rotation)} {F(kp.X + W / 2)} {F(kp.Y + H / 2)})" """
-                    : " ";
-                sb.AppendLine($"""  <rect x="{F(kp.X)}" y="{F(kp.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="{ComboColor}" opacity="0.15" stroke="{ComboColor}" stroke-width="1.5"/>""");
-            }
+        for (var j = 0; j < centers.Count - 1; j++)
+            sb.AppendLine($"""  <line x1="{F(centers[j].X)}" y1="{F(centers[j].Y)}" x2="{F(centers[j + 1].X)}" y2="{F(centers[j + 1].Y)}" stroke="{ComboColor}" stroke-width="2" opacity="0.6"/>""");
 
-            for (var j = 0; j < centers.Count - 1; j++)
-                sb.AppendLine($"""  <line x1="{F(centers[j].X)}" y1="{F(centers[j].Y)}" x2="{F(centers[j + 1].X)}" y2="{F(centers[j + 1].Y)}" stroke="{ComboColor}" stroke-width="1.5" opacity="0.5"/>""");
-
-            if (centers.Count > 0)
-            {
-                var avgX = centers.Average(c => c.X);
-                var avgY = centers.Average(c => c.Y);
-                sb.AppendLine($"""  <text x="{F(avgX)}" y="{F(avgY + 4)}" text-anchor="middle" fill="{ComboColor}" font-size="{FontSize - 1}px" font-weight="bold" font-family="{Font}">{Esc(combo.Name)}{Esc(layerInfo)}</text>""");
-            }
+        // Label binding result
+        if (centers.Count > 0)
+        {
+            var avgX = centers.Average(c => c.X);
+            var avgY = centers.Average(c => c.Y);
+            var bindingLabel = KeyLabels.ParseBinding(combo.Binding);
+            sb.AppendLine($"""  <text x="{F(avgX)}" y="{F(avgY + 5)}" text-anchor="middle" fill="{ComboColor}" font-size="{FontSize}px" font-weight="bold" font-family="{Font}">{Esc(bindingLabel)}</text>""");
         }
 
         sb.AppendLine("</svg>");

@@ -16,10 +16,15 @@ ZMK firmware/config for my wireless Corne keyboards.
 - below F4: CTRL+. - suggestions (Visual Studio/ VSCode)
 
 ## Combos
-- default layer: cut, copy, paste, caps_word, escape (J+K)
-- nav layer: reset_bluetooth
 
-![Combos](docs/img/combos.svg)
+| Combo | Keys | Layer |
+|-------|------|-------|
+| ![cut](docs/img/combo_cut.svg) | Z + X | Default |
+| ![copy](docs/img/combo_copy.svg) | X + C | Default |
+| ![paste](docs/img/combo_paste.svg) | C + V | Default |
+| ![caps_word](docs/img/combo_caps_word.svg) | T + Y | Default |
+| ![escape](docs/img/combo_escape.svg) | J + K | Default |
+| ![reset_bluetooth](docs/img/combo_reset_bluetooth.svg) | E+R+T+Y+U+I | Nav |
 
 ## Low profile (Eyelash Corne)
 
@@ -33,7 +38,17 @@ ZMK firmware/config for my wireless Corne keyboards.
 ![Navigation layer key layout](docs/img/lp_nav_layer.svg)
 
 ### Combos
-![Combos](docs/img/lp_combos.svg)
+
+| Combo | Keys | Layer |
+|-------|------|-------|
+| ![cut](docs/img/lp_combo_cut.svg) | Z + X | Default |
+| ![copy](docs/img/lp_combo_copy.svg) | X + C | Default |
+| ![paste](docs/img/lp_combo_paste.svg) | C + V | Default |
+| ![caps_word](docs/img/lp_combo_caps_word.svg) | T + Y | Default |
+| ![escape](docs/img/lp_combo_escape.svg) | J + K | Default |
+| ![reset_bluetooth](docs/img/lp_combo_reset_bluetooth.svg) | E+R+T+Y+U+I | Nav |
+| ![bootloader_left](docs/img/lp_combo_bootloader_left.svg) | Q+W+E | Nav |
+| ![bootloader_right](docs/img/lp_combo_bootloader_right.svg) | O+P+\\ | Nav |
 
 ## Generating keymap visuals
 
