@@ -232,11 +232,10 @@ static class Layout
         pos.Add(new KeyPos(4.60 * U, 3.305 * U, 15));
         pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30));
 
-        // Right thumbs (mirrored around center = 6 + Gap/2)
-        var center = 6 + Gap / 2;
-        pos.Add(new KeyPos((center + (center - 5.77)) * U, 3.255 * U, -30));
-        pos.Add(new KeyPos((center + (center - 4.60)) * U, 3.305 * U, -15));
-        pos.Add(new KeyPos((center + (center - 3.50)) * U, 3.158 * U, 0));
+        // Right thumbs (mirrored: rightX = 11 + Gap - leftX)
+        pos.Add(new KeyPos((11 + Gap - 5.77) * U, 3.255 * U, -30));  // Ret (inner)
+        pos.Add(new KeyPos((11 + Gap - 4.60) * U, 3.305 * U, -15));  // Del (middle)
+        pos.Add(new KeyPos((11 + Gap - 3.50) * U, 3.158 * U, 0));    // MO(2) (outer)
 
         return pos;
     }
@@ -274,10 +273,9 @@ static class Layout
         pos.Add(new KeyPos(4.60 * U, 3.305 * U, 15));
         pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30));
 
-        var ctr = 6 + Gap / 2;
-        pos.Add(new KeyPos((ctr + (ctr - 5.77)) * U, 3.255 * U, -30));
-        pos.Add(new KeyPos((ctr + (ctr - 4.60)) * U, 3.305 * U, -15));
-        pos.Add(new KeyPos((ctr + (ctr - 3.50)) * U, 3.158 * U, 0));
+        pos.Add(new KeyPos((11 + Gap - 5.77) * U, 3.255 * U, -30));
+        pos.Add(new KeyPos((11 + Gap - 4.60) * U, 3.305 * U, -15));
+        pos.Add(new KeyPos((11 + Gap - 3.50) * U, 3.158 * U, 0));
 
         return pos;
     }
