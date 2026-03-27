@@ -206,9 +206,9 @@ record KeyPos(double X, double Y, double Rotation = 0, double H = 1.0);
 
 static class Layout
 {
-    // 1 unit = key pitch. We scale to pixels: 1u = 64px
-    const double U = 64.0;
-    const double Gap = 3.0; // 3u gap between halves
+    // 1 unit = key pitch. We scale to pixels: 1u = 56px (key=52px + 4px gap)
+    const double U = 56.0;
+    const double Gap = 2.5; // gap between halves
 
     // Column stagger offsets (in units, relative to middle finger = 0)
     static readonly double[] ColStagger = [0.375, 0.375, 0.125, 0.0, 0.125, 0.25];
@@ -285,7 +285,7 @@ static class Layout
 
 class SvgRenderer
 {
-    const double W = 60, H = 44, Rx = 6, PadSvg = 30;
+    const double W = 52, H = 52, Rx = 6, PadSvg = 30;
     const int FontSize = 11;
     const string BgColor = "#1e1e2e", KeyColor = "#313244", KeyStroke = "#45475a";
     const string TextColor = "#cdd6f4", AccentColor = "#89b4fa", HoldColor = "#a6adc8";
