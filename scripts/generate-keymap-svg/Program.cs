@@ -19,7 +19,7 @@ for (var i = 0; i < args.Length; i++)
 
 var parser = new KeymapParser();
 var data = parser.Parse(keymapPath);
-var positions = layout == "eyelash" ? Layout.Eyelash() : Layout.Corne();
+List<KeyPos> positions = layout == "eyelash" ? Layout.Eyelash() : Layout.Corne();
 Directory.CreateDirectory(outputDir);
 
 var filePrefix = string.IsNullOrEmpty(prefix) ? "" : $"{prefix}_";
@@ -202,55 +202,81 @@ static class KeyLabels
 
 // ─── Layout positions ───────────────────────────────────────────────────────
 
+record KeyPos(double X, double Y, double Rotation = 0, double H = 1.0);
+
 static class Layout
 {
-    const int W = 64, H = 48, Pad = 4, SplitGap = 32, ThumbOffsetY = 12, Cols = 6, Rows = 3;
+    // 1 unit = key pitch. We scale to pixels: 1u = 64px
+    const double U = 64.0;
+    const double Gap = 3.0; // 3u gap between halves
 
-    public static List<(int X, int Y)> Corne()
+    // Column stagger offsets (in units, relative to middle finger = 0)
+    static readonly double[] ColStagger = [0.375, 0.375, 0.125, 0.0, 0.125, 0.25];
+
+    public static List<KeyPos> Corne()
     {
-        var pos = new List<(int, int)>();
-        for (var row = 0; row < Rows; row++)
+        var pos = new List<KeyPos>();
+
+        // Keys are ordered per row: left 6 + right 6
+        for (var row = 0; row < 3; row++)
         {
-            for (var col = 0; col < Cols; col++)
-                pos.Add((col * (W + Pad), row * (H + Pad)));
-            for (var col = 0; col < Cols; col++)
-                pos.Add(((Cols + col) * (W + Pad) + SplitGap, row * (H + Pad)));
+            for (var col = 0; col < 6; col++)
+                pos.Add(new KeyPos(col * U, (row + ColStagger[col]) * U));
+            for (var col = 0; col < 6; col++)
+                pos.Add(new KeyPos((col + 6 + Gap) * U, (row + ColStagger[5 - col]) * U));
         }
-        var ty = Rows * (H + Pad) + ThumbOffsetY;
-        for (var i = 0; i < 3; i++) pos.Add(((3 + i) * (W + Pad), ty));
-        for (var i = 0; i < 3; i++) pos.Add(((Cols + i) * (W + Pad) + SplitGap, ty));
+
+        // Thumb keys (with fan arc)
+        // Left thumbs
+        pos.Add(new KeyPos(3.50 * U, 3.158 * U, 0));
+        pos.Add(new KeyPos(4.60 * U, 3.305 * U, 15));
+        pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30, 1.5));
+
+        // Right thumbs
+        pos.Add(new KeyPos((Gap + 8.23) * U, 3.255 * U, -30, 1.5));
+        pos.Add(new KeyPos((Gap + 9.40) * U, 3.305 * U, -15));
+        pos.Add(new KeyPos((Gap + 10.50) * U, 3.158 * U, 0));
+
         return pos;
     }
 
-    public static List<(int X, int Y)> Eyelash()
+    public static List<KeyPos> Eyelash()
     {
-        var pos = new List<(int, int)>();
-        var extraW = (int)(W * 0.75);
-        var sideW = Cols * (W + Pad);
-        var centerX = sideW + SplitGap / 2;
+        var pos = new List<KeyPos>();
+        var extraW = 0.75;
 
-        // Row 0: 6 + 1 + 6
-        for (var c = 0; c < 6; c++) pos.Add((c * (W + Pad), 0));
-        pos.Add((centerX - extraW / 2, 0));
-        for (var c = 0; c < 6; c++) pos.Add((sideW + SplitGap + c * (W + Pad), 0));
+        // Row 0: 6 left + 1 center + 6 right
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos(c * U, ColStagger[c] * U));
+        pos.Add(new KeyPos((6 + Gap / 2 - extraW / 2) * U, 0.25 * U)); // UP center
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos((c + 6 + Gap) * U, ColStagger[5 - c] * U));
 
-        // Row 1: 6 + 3 + 6
-        var y1 = H + Pad;
-        for (var c = 0; c < 6; c++) pos.Add((c * (W + Pad), y1));
-        for (var i = 0; i < 3; i++) pos.Add((centerX - extraW - Pad + i * (extraW + Pad), y1));
-        for (var c = 0; c < 6; c++) pos.Add((sideW + SplitGap + c * (W + Pad), y1));
+        // Row 1: 6 left + 3 center + 6 right
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos(c * U, (1 + ColStagger[c]) * U));
+        for (var i = 0; i < 3; i++)
+            pos.Add(new KeyPos((5.5 + Gap / 2 - extraW + i * (extraW + 0.1)) * U, 1.25 * U));
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos((c + 6 + Gap) * U, (1 + ColStagger[5 - c]) * U));
 
-        // Row 2: 6 + 1 + 1 + 6
-        var y2 = 2 * (H + Pad);
-        for (var c = 0; c < 6; c++) pos.Add((c * (W + Pad), y2));
-        pos.Add((sideW - Pad, y2));
-        pos.Add((centerX - extraW / 2, y2));
-        for (var c = 0; c < 6; c++) pos.Add((sideW + SplitGap + c * (W + Pad), y2));
+        // Row 2: 6 left + 1 + 1 + 6 right
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos(c * U, (2 + ColStagger[c]) * U));
+        pos.Add(new KeyPos(5.75 * U, 2.25 * U));  // extra left
+        pos.Add(new KeyPos((6 + Gap / 2 - extraW / 2) * U, 2.25 * U)); // DOWN
+        for (var c = 0; c < 6; c++)
+            pos.Add(new KeyPos((c + 6 + Gap) * U, (2 + ColStagger[5 - c]) * U));
 
         // Thumbs: 3 + 3
-        var ty = 3 * (H + Pad) + ThumbOffsetY;
-        for (var i = 0; i < 3; i++) pos.Add(((3 + i) * (W + Pad), ty));
-        for (var i = 0; i < 3; i++) pos.Add((sideW + SplitGap + i * (W + Pad), ty));
+        pos.Add(new KeyPos(3.50 * U, 3.158 * U, 0));
+        pos.Add(new KeyPos(4.60 * U, 3.305 * U, 15));
+        pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30));
+
+        pos.Add(new KeyPos((Gap + 8.23) * U, 3.255 * U, -30));
+        pos.Add(new KeyPos((Gap + 9.40) * U, 3.305 * U, -15));
+        pos.Add(new KeyPos((Gap + 10.50) * U, 3.158 * U, 0));
+
         return pos;
     }
 }
@@ -259,63 +285,73 @@ static class Layout
 
 class SvgRenderer
 {
-    const int W = 64, H = 48, Rx = 6, FontSize = 11, PadSvg = 20;
+    const double W = 60, H = 44, Rx = 6, PadSvg = 30;
+    const int FontSize = 11;
     const string BgColor = "#1e1e2e", KeyColor = "#313244", KeyStroke = "#45475a";
     const string TextColor = "#cdd6f4", AccentColor = "#89b4fa", HoldColor = "#a6adc8";
     const string ComboColor = "#f38ba8", TransColor = "#585b70";
     const string Font = "Inter, SF Pro Text, Segoe UI, system-ui, sans-serif";
 
-    public string RenderLayer(Layer layer, List<(int X, int Y)> positions)
+    static string F(double v) => v.ToString("F1", System.Globalization.CultureInfo.InvariantCulture);
+
+    public string RenderLayer(Layer layer, List<KeyPos> positions)
     {
         var labels = layer.Bindings.Select(KeyLabels.ParseBinding).ToList();
-        var maxX = positions.Max(p => p.X) + W + PadSvg;
-        var maxY = positions.Max(p => p.Y) + H + PadSvg + 30;
+        var (vw, vh) = GetViewBox(positions);
         var sb = new StringBuilder();
 
-        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" width="{maxX + PadSvg * 2}" height="{maxY + PadSvg}" viewBox="{-PadSvg} {-PadSvg} {maxX + PadSvg * 2} {maxY + PadSvg}">""");
-        sb.AppendLine($"""  <rect x="{-PadSvg}" y="{-PadSvg}" width="{maxX + PadSvg * 2}" height="{maxY + PadSvg}" fill="{BgColor}" rx="12"/>""");
-        sb.AppendLine($"""  <text x="{maxX / 2}" y="-4" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">{Esc(layer.Name)}</text>""");
+        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{F(-PadSvg)} {F(-PadSvg)} {F(vw)} {F(vh)}">""");
+        sb.AppendLine($"""  <rect x="{F(-PadSvg)}" y="{F(-PadSvg)}" width="{F(vw)}" height="{F(vh)}" fill="{BgColor}" rx="12"/>""");
+        sb.AppendLine($"""  <text x="{F((vw - PadSvg * 2) / 2)}" y="-8" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">{Esc(layer.Name)}</text>""");
 
         for (var i = 0; i < positions.Count && i < labels.Count; i++)
-            RenderKey(sb, positions[i].X, positions[i].Y + 16, labels[i]);
+            RenderKey(sb, positions[i], labels[i]);
 
         sb.AppendLine("</svg>");
         return sb.ToString();
     }
 
-    public string RenderCombos(List<Combo> combos, List<(int X, int Y)> positions)
+    public string RenderCombos(List<Combo> combos, List<KeyPos> positions)
     {
-        var maxX = positions.Max(p => p.X) + W + PadSvg;
-        var maxY = positions.Max(p => p.Y) + H + PadSvg + 30;
+        var (vw, vh) = GetViewBox(positions);
         var sb = new StringBuilder();
 
-        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" width="{maxX + PadSvg * 2}" height="{maxY + PadSvg}" viewBox="{-PadSvg} {-PadSvg} {maxX + PadSvg * 2} {maxY + PadSvg}">""");
-        sb.AppendLine($"""  <rect x="{-PadSvg}" y="{-PadSvg}" width="{maxX + PadSvg * 2}" height="{maxY + PadSvg}" fill="{BgColor}" rx="12"/>""");
-        sb.AppendLine($"""  <text x="{maxX / 2}" y="-4" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">Combos</text>""");
+        sb.AppendLine($"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{F(-PadSvg)} {F(-PadSvg)} {F(vw)} {F(vh)}">""");
+        sb.AppendLine($"""  <rect x="{F(-PadSvg)}" y="{F(-PadSvg)}" width="{F(vw)}" height="{F(vh)}" fill="{BgColor}" rx="12"/>""");
+        sb.AppendLine($"""  <text x="{F((vw - PadSvg * 2) / 2)}" y="-8" text-anchor="middle" fill="{AccentColor}" font-size="14px" font-weight="bold" font-family="{Font}">Combos</text>""");
 
-        foreach (var (x, y) in positions)
-            sb.AppendLine($"""  <rect x="{x}" y="{y + 16}" width="{W}" height="{H}" rx="{Rx}" fill="none" stroke="{TransColor}" stroke-width="0.5" opacity="0.3"/>""");
+        // Ghost keys
+        foreach (var p in positions)
+        {
+            var transform = p.Rotation != 0
+                ? $""" transform="rotate({F(p.Rotation)} {F(p.X + W / 2)} {F(p.Y + H / 2)})" """
+                : " ";
+            sb.AppendLine($"""  <rect x="{F(p.X)}" y="{F(p.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="none" stroke="{TransColor}" stroke-width="0.5" opacity="0.3"/>""");
+        }
 
         foreach (var combo in combos)
         {
-            var centers = new List<(int X, int Y)>();
+            var centers = new List<(double X, double Y)>();
             var layerInfo = combo.Layers != null ? $" (L{string.Join(",", combo.Layers)})" : "";
 
             foreach (var p in combo.Positions.Where(p => p < positions.Count))
             {
-                var (kx, ky) = positions[p];
-                centers.Add((kx + W / 2, ky + 16 + H / 2));
-                sb.AppendLine($"""  <rect x="{kx}" y="{ky + 16}" width="{W}" height="{H}" rx="{Rx}" fill="{ComboColor}" opacity="0.15" stroke="{ComboColor}" stroke-width="1.5"/>""");
+                var kp = positions[p];
+                centers.Add((kp.X + W / 2, kp.Y + H / 2));
+                var transform = kp.Rotation != 0
+                    ? $""" transform="rotate({F(kp.Rotation)} {F(kp.X + W / 2)} {F(kp.Y + H / 2)})" """
+                    : " ";
+                sb.AppendLine($"""  <rect x="{F(kp.X)}" y="{F(kp.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="{ComboColor}" opacity="0.15" stroke="{ComboColor}" stroke-width="1.5"/>""");
             }
 
             for (var j = 0; j < centers.Count - 1; j++)
-                sb.AppendLine($"""  <line x1="{centers[j].X}" y1="{centers[j].Y}" x2="{centers[j + 1].X}" y2="{centers[j + 1].Y}" stroke="{ComboColor}" stroke-width="1.5" opacity="0.5"/>""");
+                sb.AppendLine($"""  <line x1="{F(centers[j].X)}" y1="{F(centers[j].Y)}" x2="{F(centers[j + 1].X)}" y2="{F(centers[j + 1].Y)}" stroke="{ComboColor}" stroke-width="1.5" opacity="0.5"/>""");
 
             if (centers.Count > 0)
             {
-                var avgX = centers.Sum(c => c.X) / centers.Count;
-                var avgY = centers.Sum(c => c.Y) / centers.Count;
-                sb.AppendLine($"""  <text x="{avgX}" y="{avgY + 4}" text-anchor="middle" fill="{ComboColor}" font-size="{FontSize - 1}px" font-weight="bold" font-family="{Font}">{Esc(combo.Name)}{Esc(layerInfo)}</text>""");
+                var avgX = centers.Average(c => c.X);
+                var avgY = centers.Average(c => c.Y);
+                sb.AppendLine($"""  <text x="{F(avgX)}" y="{F(avgY + 4)}" text-anchor="middle" fill="{ComboColor}" font-size="{FontSize - 1}px" font-weight="bold" font-family="{Font}">{Esc(combo.Name)}{Esc(layerInfo)}</text>""");
             }
         }
 
@@ -323,26 +359,43 @@ class SvgRenderer
         return sb.ToString();
     }
 
-    void RenderKey(StringBuilder sb, int x, int y, string label)
+    void RenderKey(StringBuilder sb, KeyPos pos, string label)
     {
         var isTrans = label == "\u25BD";
         var fill = isTrans ? BgColor : KeyColor;
         var stroke = isTrans ? TransColor : KeyStroke;
         var textFill = isTrans ? TransColor : TextColor;
+        var x = pos.X;
+        var y = pos.Y;
+        var h = H * pos.H;
 
-        sb.AppendLine($"""  <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="{Rx}" fill="{fill}" stroke="{stroke}" stroke-width="1.5"/>""");
+        var transformAttr = pos.Rotation != 0
+            ? $""" transform="rotate({F(pos.Rotation)} {F(x + W / 2)} {F(y + h / 2)})" """
+            : " ";
+
+        sb.AppendLine($"""  <g{transformAttr}>""");
+        sb.AppendLine($"""    <rect x="{F(x)}" y="{F(y)}" width="{F(W)}" height="{F(h)}" rx="{Rx}" fill="{fill}" stroke="{stroke}" stroke-width="1.5"/>""");
 
         if (label.Contains('\n'))
         {
             var lines = label.Split('\n');
-            var tx = x + W / 2;
-            sb.AppendLine($"""  <text x="{tx}" y="{y + H / 2 - 2}" text-anchor="middle" fill="{textFill}" font-size="{FontSize}px" font-family="{Font}">{Esc(lines[0])}</text>""");
-            sb.AppendLine($"""  <text x="{tx}" y="{y + H / 2 + FontSize + 1}" text-anchor="middle" fill="{HoldColor}" font-size="{FontSize - 2}px" font-family="{Font}">{Esc(lines[1])}</text>""");
+            sb.AppendLine($"""    <text x="{F(x + W / 2)}" y="{F(y + h / 2 - 2)}" text-anchor="middle" fill="{textFill}" font-size="{FontSize}px" font-family="{Font}">{Esc(lines[0])}</text>""");
+            sb.AppendLine($"""    <text x="{F(x + W / 2)}" y="{F(y + h / 2 + FontSize + 1)}" text-anchor="middle" fill="{HoldColor}" font-size="{FontSize - 2}px" font-family="{Font}">{Esc(lines[1])}</text>""");
         }
         else
         {
-            sb.AppendLine($"""  <text x="{x + W / 2}" y="{y + H / 2 + FontSize / 3}" text-anchor="middle" fill="{textFill}" font-size="{FontSize}px" font-family="{Font}">{Esc(label)}</text>""");
+            sb.AppendLine($"""    <text x="{F(x + W / 2)}" y="{F(y + h / 2 + FontSize / 3.0)}" text-anchor="middle" fill="{textFill}" font-size="{FontSize}px" font-family="{Font}">{Esc(label)}</text>""");
         }
+
+        sb.AppendLine("  </g>");
+    }
+
+    (double W, double H) GetViewBox(List<KeyPos> positions)
+    {
+        // Approximate bounding box (ignoring rotation for simplicity)
+        var maxX = positions.Max(p => p.X) + W + PadSvg * 2;
+        var maxY = positions.Max(p => p.Y + H * p.H) + PadSvg * 2;
+        return (maxX, maxY);
     }
 
     static string Esc(string text) => text
