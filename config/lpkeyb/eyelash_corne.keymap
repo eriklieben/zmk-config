@@ -33,9 +33,15 @@
             layers = <0>;
         };
 
-        caps_lock {
-            bindings = <&kp CAPSLOCK>;
+        caps_word {
+            bindings = <&caps_word>;
             key-positions = <5 7>;
+            layers = <0>;
+        };
+
+        escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <23 24>;
             layers = <0>;
         };
 

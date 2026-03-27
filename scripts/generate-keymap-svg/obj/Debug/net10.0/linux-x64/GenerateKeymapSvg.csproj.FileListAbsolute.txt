@@ -1,0 +1,15 @@
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/bin/Debug/net10.0/linux-x64/GenerateKeymapSvg
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/bin/Debug/net10.0/linux-x64/GenerateKeymapSvg.deps.json
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/bin/Debug/net10.0/linux-x64/GenerateKeymapSvg.runtimeconfig.json
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/bin/Debug/net10.0/linux-x64/GenerateKeymapSvg.dll
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/bin/Debug/net10.0/linux-x64/GenerateKeymapSvg.pdb
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.GeneratedMSBuildEditorConfig.editorconfig
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.AssemblyInfoInputs.cache
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.AssemblyInfo.cs
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.csproj.CoreCompileInputs.cache
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.sourcelink.json
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.dll
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/refint/GenerateKeymapSvg.dll
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.pdb
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/GenerateKeymapSvg.genruntimeconfig.cache
+/home/erik/Repository/zmk-config/main/scripts/generate-keymap-svg/obj/Debug/net10.0/linux-x64/ref/GenerateKeymapSvg.dll

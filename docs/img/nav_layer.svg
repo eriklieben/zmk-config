@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="904" height="286" viewBox="-20 -20 904 286">
+  <rect x="-20" y="-20" width="904" height="286" fill="#1e1e2e" rx="12"/>
+  <text x="432" y="-4" text-anchor="middle" fill="#89b4fa" font-size="14px" font-weight="bold" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">nav</text>
+  <rect x="0" y="16" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="32" y="43" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="68" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="100" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F1</text>
+  <rect x="136" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="168" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F2</text>
+  <rect x="204" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="236" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F3</text>
+  <rect x="272" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="304" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F4</text>
+  <rect x="340" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="372" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F5</text>
+  <rect x="440" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="472" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F6</text>
+  <rect x="508" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="540" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F7</text>
+  <rect x="576" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="608" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F8</text>
+  <rect x="644" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="676" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F9</text>
+  <rect x="712" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="744" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F10</text>
+  <rect x="780" y="16" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="812" y="43" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">G-L</text>
+  <rect x="0" y="68" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="32" y="95" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="68" y="68" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="100" y="95" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="136" y="68" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="168" y="95" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="204" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="236" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">S-C-B</text>
+  <rect x="272" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="304" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">C-.</text>
+  <rect x="340" y="68" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="372" y="95" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="440" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="472" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">←</text>
+  <rect x="508" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="540" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">↓</text>
+  <rect x="576" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="608" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">↑</text>
+  <rect x="644" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="676" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">→</text>
+  <rect x="712" y="68" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="744" y="95" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F11</text>
+  <rect x="780" y="68" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="812" y="95" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="0" y="120" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="32" y="147" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="68" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="100" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">BT Prv</text>
+  <rect x="136" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="168" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">BT Nxt</text>
+  <rect x="204" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="236" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">Out Tog</text>
+  <rect x="272" y="120" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="304" y="147" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="340" y="120" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="372" y="147" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="440" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="472" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">Home</text>
+  <rect x="508" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="540" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">PgDn</text>
+  <rect x="576" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="608" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">PgUp</text>
+  <rect x="644" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="676" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">End</text>
+  <rect x="712" y="120" width="64" height="48" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="744" y="147" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F12</text>
+  <rect x="780" y="120" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="812" y="147" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="204" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="236" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="272" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="304" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="340" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="372" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="440" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="472" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="508" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="540" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <rect x="576" y="184" width="64" height="48" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+  <text x="608" y="211" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+</svg>
