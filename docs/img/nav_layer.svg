@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30.0 -30.0 1016.0 334.3">
-  <rect x="-30.0" y="-30.0" width="1016.0" height="334.3" fill="#1e1e2e" rx="12"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30.0 -30.0 1016.0 315.5">
+  <rect x="-30.0" y="-30.0" width="1016.0" height="315.5" fill="#1e1e2e" rx="12"/>
   <text x="478.0" y="-8" text-anchor="middle" fill="#89b4fa" font-size="14px" font-weight="bold" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">nav</text>
   <g >
     <rect x="0.0" y="24.0" width="60.0" height="44.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
@@ -153,13 +153,13 @@
     <rect x="294.4" y="211.5" width="60.0" height="44.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
     <text x="324.4" y="237.2" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
   </g>
-  <g transform="rotate(30.0 399.3 241.3)" >
-    <rect x="369.3" y="208.3" width="60.0" height="66.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
-    <text x="399.3" y="245.0" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <g transform="rotate(30.0 399.3 230.3)" >
+    <rect x="369.3" y="208.3" width="60.0" height="44.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+    <text x="399.3" y="234.0" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
   </g>
-  <g transform="rotate(-30.0 748.7 241.3)" >
-    <rect x="718.7" y="208.3" width="60.0" height="66.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
-    <text x="748.7" y="245.0" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+  <g transform="rotate(-30.0 748.7 230.3)" >
+    <rect x="718.7" y="208.3" width="60.0" height="44.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
+    <text x="748.7" y="234.0" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
   </g>
   <g transform="rotate(-15.0 823.6 233.5)" >
     <rect x="793.6" y="211.5" width="60.0" height="44.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>

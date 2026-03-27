@@ -230,10 +230,10 @@ static class Layout
         // Left thumbs
         pos.Add(new KeyPos(3.50 * U, 3.158 * U, 0));
         pos.Add(new KeyPos(4.60 * U, 3.305 * U, 15));
-        pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30, 1.5));
+        pos.Add(new KeyPos(5.77 * U, 3.255 * U, 30));
 
         // Right thumbs
-        pos.Add(new KeyPos((Gap + 8.23) * U, 3.255 * U, -30, 1.5));
+        pos.Add(new KeyPos((Gap + 8.23) * U, 3.255 * U, -30));
         pos.Add(new KeyPos((Gap + 9.40) * U, 3.305 * U, -15));
         pos.Add(new KeyPos((Gap + 10.50) * U, 3.158 * U, 0));
 
