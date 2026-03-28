@@ -45,6 +45,5 @@
   <rect x="560.0" y="176.8" width="52.0" height="52.0" rx="6" fill="none" stroke="#585b70" stroke-width="0.5" opacity="0.3"/>
   <rect x="56.0" y="133.0" width="52.0" height="52.0" rx="6" fill="#f38ba8" opacity="0.2" stroke="#f38ba8" stroke-width="2"/>
   <rect x="112.0" y="119.0" width="52.0" height="52.0" rx="6" fill="#f38ba8" opacity="0.2" stroke="#f38ba8" stroke-width="2"/>
-  <line x1="82.0" y1="159.0" x2="138.0" y2="145.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
   <text x="110.0" y="157.0" text-anchor="middle" fill="#f38ba8" font-size="11px" font-weight="bold" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">C-X</text>
 </svg>
