@@ -1,30 +1,40 @@
 # My custom keyboards
 ZMK firmware/config for my wireless Corne keyboards.
 
+<!-- BEGIN KEYMAP - AUTO-GENERATED, DO NOT EDIT -->
+
 ## Keyboard layout/ keymap
 
-### Default layer
-![default layer key layout](docs/img/default_layer.svg)
+### default_layer
+![default_layer](docs/img/default_layer.svg)
 
-### Symbols layer (1)
-![symbols layer key layout](docs/img/symbols_layer.svg)
+### symbols
+![symbols](docs/img/symbols_layer.svg)
 
-### Nav layer (2)
-![Navigation layer key layout](docs/img/nav_layer.svg)
-
-- below F3: CTRL+SHIFT+B - build solution (Visual Studio)
-- below F4: CTRL+. - suggestions (Visual Studio/ VSCode)
+### nav
+![nav](docs/img/nav_layer.svg)
 
 ## Combos
 
-| Combo | Keys | Layer |
-|-------|------|-------|
-| ![cut](docs/img/combo_cut.svg) | Z + X | Default |
-| ![copy](docs/img/combo_copy.svg) | X + C | Default |
-| ![paste](docs/img/combo_paste.svg) | C + V | Default |
-| ![caps_word](docs/img/combo_caps_word.svg) | T + Y | Default |
-| ![escape](docs/img/combo_escape.svg) | J + K | Default |
-| ![reset_bluetooth](docs/img/combo_reset_bluetooth.svg) | E+R+T+Y+U+I | Nav |
+### cut
+![cut](docs/img/combo_cut.svg)
+
+### copy
+![copy](docs/img/combo_copy.svg)
+
+### paste
+![paste](docs/img/combo_paste.svg)
+
+### caps_word
+![caps_word](docs/img/combo_caps_word.svg)
+
+### escape
+![escape](docs/img/combo_escape.svg)
+
+### reset_bluetooth
+![reset_bluetooth](docs/img/combo_reset_bluetooth.svg)
+
+<!-- END KEYMAP -->
 
 ## Generating keymap visuals
 

@@ -5,6 +5,7 @@ var keymapPath = "config/corne.keymap";
 var outputDir = "docs/img";
 var layout = "corne";
 var prefix = "";
+string? readmePath = null;
 
 for (var i = 0; i < args.Length; i++)
 {
@@ -14,6 +15,7 @@ for (var i = 0; i < args.Length; i++)
         case "--output" when i + 1 < args.Length: outputDir = args[++i]; break;
         case "--layout" when i + 1 < args.Length: layout = args[++i]; break;
         case "--prefix" when i + 1 < args.Length: prefix = args[++i]; break;
+        case "--update-readme" when i + 1 < args.Length: readmePath = args[++i]; break;
     }
 }
 
@@ -24,22 +26,73 @@ Directory.CreateDirectory(outputDir);
 
 var filePrefix = string.IsNullOrEmpty(prefix) ? "" : $"{prefix}_";
 var renderer = new SvgRenderer();
+var layerFiles = new List<(string Name, string File)>();
+var comboFiles = new List<(string Name, string File)>();
 
 foreach (var layer in data.Layers)
 {
     var safeName = Regex.Replace(layer.Name.ToLower(), @"[^a-z0-9]+", "_").Trim('_');
     if (safeName.EndsWith("_layer")) safeName = safeName[..^6];
-    var path = Path.Combine(outputDir, $"{filePrefix}{safeName}_layer.svg");
+    var filename = $"{filePrefix}{safeName}_layer.svg";
+    var path = Path.Combine(outputDir, filename);
     File.WriteAllText(path, renderer.RenderLayer(layer, positions));
+    layerFiles.Add((layer.Name, filename));
     Console.WriteLine($"  Generated {path}");
 }
 
 foreach (var combo in data.Combos)
 {
     var comboName = Regex.Replace(combo.Name.ToLower(), @"[^a-z0-9]+", "_").Trim('_');
-    var path = Path.Combine(outputDir, $"{filePrefix}combo_{comboName}.svg");
+    var filename = $"{filePrefix}combo_{comboName}.svg";
+    var path = Path.Combine(outputDir, filename);
     File.WriteAllText(path, renderer.RenderCombo(combo, positions));
+    comboFiles.Add((combo.Name, filename));
     Console.WriteLine($"  Generated {path}");
+}
+
+if (readmePath != null)
+{
+    var readme = File.ReadAllText(readmePath);
+
+    // Compute image path relative to README location
+    var readmeDir = Path.GetDirectoryName(Path.GetFullPath(readmePath)) ?? ".";
+    var imgDir = Path.GetFullPath(outputDir);
+    var relImgDir = Path.GetRelativePath(readmeDir, imgDir).Replace('\\', '/');
+
+    // Build the keymap section
+    var sb = new StringBuilder();
+    sb.AppendLine("<!-- BEGIN KEYMAP - AUTO-GENERATED, DO NOT EDIT -->");
+    sb.AppendLine();
+    sb.AppendLine("## Keyboard layout/ keymap");
+    sb.AppendLine();
+    foreach (var (name, file) in layerFiles)
+    {
+        sb.AppendLine($"### {name}");
+        sb.AppendLine($"![{name}]({relImgDir}/{file})");
+        sb.AppendLine();
+    }
+    sb.AppendLine("## Combos");
+    sb.AppendLine();
+    foreach (var (name, file) in comboFiles)
+    {
+        sb.AppendLine($"### {name}");
+        sb.AppendLine($"![{name}]({relImgDir}/{file})");
+        sb.AppendLine();
+    }
+    sb.Append("<!-- END KEYMAP -->");
+
+    // Replace between markers, or append if markers don't exist
+    var markerPattern = new Regex(
+        @"<!-- BEGIN KEYMAP.*?-->.*?<!-- END KEYMAP -->",
+        RegexOptions.Singleline);
+
+    if (markerPattern.IsMatch(readme))
+        readme = markerPattern.Replace(readme, sb.ToString());
+    else
+        Console.WriteLine("  Warning: no <!-- BEGIN KEYMAP --> markers found in README, skipping update");
+
+    File.WriteAllText(readmePath, readme);
+    Console.WriteLine($"  Updated {readmePath}");
 }
 
 // ─── Models ─────────────────────────────────────────────────────────────────
