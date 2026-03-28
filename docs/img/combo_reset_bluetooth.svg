@@ -49,10 +49,5 @@
   <rect x="168.0" y="0.0" width="52.0" height="52.0" rx="6" fill="#f38ba8" opacity="0.2" stroke="#f38ba8" stroke-width="2"/>
   <rect x="532.0" y="7.0" width="52.0" height="52.0" rx="6" fill="#f38ba8" opacity="0.2" stroke="#f38ba8" stroke-width="2"/>
   <rect x="588.0" y="0.0" width="52.0" height="52.0" rx="6" fill="#f38ba8" opacity="0.2" stroke="#f38ba8" stroke-width="2"/>
-  <line x1="306.0" y1="40.0" x2="502.0" y2="40.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
-  <line x1="502.0" y1="40.0" x2="250.0" y2="33.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
-  <line x1="250.0" y1="33.0" x2="194.0" y2="26.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
-  <line x1="194.0" y1="26.0" x2="558.0" y2="33.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
-  <line x1="558.0" y1="33.0" x2="614.0" y2="26.0" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
   <text x="404.0" y="38.0" text-anchor="middle" fill="#f38ba8" font-size="11px" font-weight="bold" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">BT Clr</text>
 </svg>

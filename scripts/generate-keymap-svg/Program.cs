@@ -397,9 +397,6 @@ class SvgRenderer
             sb.AppendLine($"""  <rect x="{F(kp.X)}" y="{F(kp.Y)}" width="{F(W)}" height="{F(H)}"{transform}rx="{Rx}" fill="{ComboColor}" opacity="0.2" stroke="{ComboColor}" stroke-width="2"/>""");
         }
 
-        for (var j = 0; j < centers.Count - 1; j++)
-            sb.AppendLine($"""  <line x1="{F(centers[j].X)}" y1="{F(centers[j].Y)}" x2="{F(centers[j + 1].X)}" y2="{F(centers[j + 1].Y)}" stroke="{ComboColor}" stroke-width="2" opacity="0.6"/>""");
-
         // Label binding result
         if (centers.Count > 0)
         {
