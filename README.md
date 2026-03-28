@@ -4,23 +4,34 @@ ZMK firmware/config for my wireless Corne keyboards.
 ## Keyboard layout/ keymap
 
 ### Default layer
-![default layer key layout](docs/img/default_layer.png)
-- F20: Function key 20, used for GlazeWM control
+![default layer key layout](docs/img/default_layer.svg)
 
 ### Symbols layer (1)
-![symbols layer key layout](docs/img/symbols_layer.png)
+![symbols layer key layout](docs/img/symbols_layer.svg)
 
 ### Nav layer (2)
-![Navigation layer key layout](docs/img/nav_layer.png)
+![Navigation layer key layout](docs/img/nav_layer.svg)
 
 - below F3: CTRL+SHIFT+B - build solution (Visual Studio)
 - below F4: CTRL+. - suggestions (Visual Studio/ VSCode)
 
 ## Combos
-- default layer: cut, copy, paste, caps_word, caps_lock
-- nav layer: reset_bluetooth
 
-![Combos](docs/img/combos.png)
+| Combo | Keys | Layer |
+|-------|------|-------|
+| ![cut](docs/img/combo_cut.svg) | Z + X | Default |
+| ![copy](docs/img/combo_copy.svg) | X + C | Default |
+| ![paste](docs/img/combo_paste.svg) | C + V | Default |
+| ![caps_word](docs/img/combo_caps_word.svg) | T + Y | Default |
+| ![escape](docs/img/combo_escape.svg) | J + K | Default |
+| ![reset_bluetooth](docs/img/combo_reset_bluetooth.svg) | E+R+T+Y+U+I | Nav |
+
+## Generating keymap visuals
+
+```bash
+cd scripts/generate-keymap-svg
+dotnet run -- --keymap ../../config/corne.keymap --output ../../docs/img --layout corne
+```
 
 ## Keyboards
 
