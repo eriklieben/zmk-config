@@ -3,3 +3,36 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  update-keymap-visuals:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Generate keymap SVGs and update README
+        run: |
+          cd scripts/generate-keymap-svg
+          dotnet run -- \
+            --keymap ../../config/corne.keymap \
+            --output ../../docs/img \
+            --layout corne \
+            --update-readme ../../README.md
+
+      - name: Commit updated visuals
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/img/*.svg README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: update keymap visuals [skip ci]"
+            git push
+          fi
