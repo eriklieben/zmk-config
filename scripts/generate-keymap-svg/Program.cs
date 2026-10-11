@@ -209,6 +209,7 @@ static class KeyLabels
         if (binding == "&caps_word") return "CapsWd";
         if (binding == "&bootloader") return "Boot";
         if (binding == "&sys_reset") return "Reset";
+        if (binding == "&studio_unlock") return "Studio";
 
         Match m;
         if ((m = Regex.Match(binding, @"^&kp\s+(.+)$")).Success)
