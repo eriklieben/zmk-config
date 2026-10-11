@@ -3,3 +3,12 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  # Single required status check for branch protection: fails unless every
+  # firmware build succeeded (a skipped upstream job would otherwise count as passing)
+  build-ok:
+    runs-on: ubuntu-latest
+    needs: build
+    if: always()
+    steps:
+      - run: test "${{ needs.build.result }}" = "success"
