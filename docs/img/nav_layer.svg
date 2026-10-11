@@ -142,8 +142,8 @@
     <text x="726.0" y="162.7" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">F12</text>
   </g>
   <g >
-    <rect x="756.0" y="133.0" width="52.0" height="52.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
-    <text x="782.0" y="162.7" text-anchor="middle" fill="#585b70" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">▽</text>
+    <rect x="756.0" y="133.0" width="52.0" height="52.0" rx="6" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+    <text x="782.0" y="162.7" text-anchor="middle" fill="#cdd6f4" font-size="11px" font-family="Inter, SF Pro Text, Segoe UI, system-ui, sans-serif">Studio</text>
   </g>
   <g >
     <rect x="196.0" y="176.8" width="52.0" height="52.0" rx="6" fill="#1e1e2e" stroke="#585b70" stroke-width="1.5"/>
