@@ -52,16 +52,6 @@
         };
     };
 
-    behaviors {
-        tpm: tap_preferred_modifier {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -87,7 +77,7 @@
             bindings = <
 &trans  &kp F1      &kp F2      &kp F3         &kp F4          &kp F5    &kp F6          &kp F7         &kp F8        &kp F9     &kp F10  &kp LG(L)
 &trans  &trans      &trans      &kp LS(LC(B))  &kp LC(PERIOD)  &trans    &kp LEFT_ARROW  &kp DOWN       &kp UP_ARROW  &kp RIGHT  &kp F11  &trans
-&trans  &bt BT_PRV  &bt BT_NXT  &out OUT_TOG   &trans          &trans    &kp HOME        &kp PAGE_DOWN  &kp PAGE_UP   &kp END    &kp F12  &trans
+&trans  &bt BT_PRV  &bt BT_NXT  &out OUT_TOG   &trans          &trans    &kp HOME        &kp PAGE_DOWN  &kp PAGE_UP   &kp END    &kp F12  &studio_unlock
                                 &trans         &trans          &trans    &trans          &trans         &trans
             >;
         };

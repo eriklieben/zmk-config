@@ -20,6 +20,8 @@
 include:
   - board: nice_nano//zmk
     shield: corne_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: corne_left
   - board: nice_nano//zmk
     shield: corne_right
@@ -33,7 +35,8 @@ include:
   # corne, black keyboard case, black keys, thocky
   - board: nice_nano//zmk
     shield: corne_left
-    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/blkkeyb/corne.conf
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/blkkeyb/corne.conf -DCONFIG_ZMK_STUDIO=y
     artifact-name: blk_corne_left
   - board: nice_nano//zmk
     shield: corne_right
@@ -43,7 +46,8 @@ include:
   # corne, white keyboard case, white keycaps, silent
   - board: nice_nano//zmk
     shield: corne_left
-    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/whkeyb/corne.conf
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/whkeyb/corne.conf -DCONFIG_ZMK_STUDIO=y
     artifact-name: wh_corne_left
   - board: nice_nano//zmk
     shield: corne_right
@@ -53,7 +57,8 @@ include:
   # corne, gray keyboard case, blue keycaps, silent
   - board: nice_nano//zmk
     shield: corne_left
-    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/grskeyb/corne.conf
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DKEYMAP_FILE=../../config/corne.keymap -DEXTRA_CONF_FILE=../../config/grskeyb/corne.conf -DCONFIG_ZMK_STUDIO=y
     artifact-name: grs_corne_left
   - board: nice_nano//zmk
     shield: corne_right
